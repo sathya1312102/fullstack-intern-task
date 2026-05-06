@@ -10,7 +10,7 @@ const favoriteRoutes = require("./routes/favoriteRoutes");
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000", "https://fullstack-intern-task-vo5n.vercel.app"],
+  origin: ["http://localhost:5173", "http://localhost:3000", "https://fullstack-intern-task-vo5n.vercel.app/templates"],
   credentials: true,
 }));
 app.use(express.json());
