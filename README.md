@@ -5,7 +5,7 @@ Mini SaaS Template Store built with React, Node.js, Express, and MongoDB.
 ## My Details
 
 - Name: Sathyabama D
-- Email: sathyadhanasekar11@email.com
+- Email: sathyadhanasekar13@email.com
 
 ## Tech Stack
 
