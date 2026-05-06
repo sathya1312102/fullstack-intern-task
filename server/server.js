@@ -10,7 +10,7 @@ const favoriteRoutes = require("./routes/favoriteRoutes");
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000","https://fullstack-intern-task-vo5n.vercel.app"],
+  origin: ["http://localhost:5173", "http://localhost:3000", "https://fullstack-intern-task-vo5n.vercel.app"],
   credentials: true,
 }));
 app.use(express.json());
@@ -24,7 +24,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/templates", templateRoutes);
 app.use("/api/favorites", favoriteRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+module.exports = app;  
