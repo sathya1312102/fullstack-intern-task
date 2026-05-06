@@ -9,10 +9,23 @@ const favoriteRoutes = require("./routes/favoriteRoutes");
 
 const app = express();
 
+
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000", "https://fullstack-intern-task-vo5n.vercel.app/templates"],
+  origin: function (origin, callback) {
+    const allowed = [
+      "http://localhost:5173",
+      "http://localhost:3000",
+    ];
+    // Allow any vercel.app subdomain
+    if (!origin || allowed.includes(origin) || origin.endsWith(".vercel.app")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
 }));
+
 app.use(express.json());
 
 mongoose
